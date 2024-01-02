@@ -1,17 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <v-app>
+    <page-header></page-header>
+    <v-main
+      class="d-flex align-center justify-center"
+      style="min-height: 300px"
+    >
+      <router-view></router-view>
+    </v-main>
+    <page-footer></page-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PageFooter from "./components/PageFooter.vue";
+import PageHeader from "./components/PageHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    PageFooter,
+    PageHeader,
+  },
+};
 </script>
 
 <style>

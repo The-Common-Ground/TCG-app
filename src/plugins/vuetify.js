@@ -1,6 +1,11 @@
-import Vue from "vue";
-import Vuetify from "vuetify";
+import { createVuetify } from "vuetify";
+import "vuetify/styles";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
 
-const vuetify = Vue.use(Vuetify);
+const vuetify = createVuetify({
+  components,
+  directives,
+});
 
 export default vuetify;
