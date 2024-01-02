@@ -13,9 +13,8 @@ export default createRouter({
   routes: [
     {
       name: "home",
-      path: "/",
+      path: "/home",
       component: Home,
-      redirect: "/home",
     },
 
     { name: "aboutus", path: "/aboutus", component: AboutUs },

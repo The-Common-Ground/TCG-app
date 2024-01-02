@@ -1,17 +1,17 @@
 <template>
   <v-app-bar app color="white" elevate-on-scroll>
     <v-tabs align-with-title>
-      <v-icon class="logo">mdi-heart</v-icon>
-      <v-tab>Home</v-tab>
-      <v-tab>About Us</v-tab>
-      <v-tab>Join a VIA</v-tab>
-      <v-tab>VIA Resources</v-tab>
-      <v-tab>Contribute</v-tab>
+      <v-icon class="logo">mdi-heart </v-icon>
+      <v-tab to="/home">Home </v-tab>
+      <v-tab to="/aboutus">About Us </v-tab>
+      <v-tab to="/joinavia">Join a VIA</v-tab>
+      <v-tab to="/resources">VIA Resources</v-tab>
+      <v-tab to="/contribute">Contribute</v-tab>
     </v-tabs>
 
     <v-spacer></v-spacer>
-    <v-btn> Login </v-btn>
-    <v-btn class="sign-up-btn" rounded="xl">
+    <v-btn to="/login"> Login </v-btn>
+    <v-btn to="signup" class="sign-up-btn" rounded="xl">
       Sign up with google
       <v-icon>mdi-arrow-right</v-icon>
     </v-btn>

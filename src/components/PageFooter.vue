@@ -31,7 +31,7 @@ export default {};
 }
 
 .handle {
-  font-family: "happy-monkey";
+  font-family: Arial;
 }
 
 .platform-icon {
