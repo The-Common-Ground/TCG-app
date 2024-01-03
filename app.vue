@@ -1,14 +1,16 @@
 <template>
-  <v-app>
-    <page-header></page-header>
-    <v-main
-      class="d-flex align-center justify-center"
-      style="min-height: 300px"
-    >
-      <router-view></router-view>
-    </v-main>
-    <page-footer></page-footer>
-  </v-app>
+  <Nuxtlayout>
+    <v-app>
+      <page-header></page-header>
+      <v-main
+        class="d-flex align-center justify-center"
+        style="min-height: 300px"
+      >
+        <Nuxt-page />
+      </v-main>
+      <page-footer></page-footer>
+    </v-app>
+  </Nuxtlayout>
 </template>
 
 <script>

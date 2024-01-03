@@ -41,17 +41,25 @@
     </v-row>
 
     <v-row justify="center" align="center" class="tech-stack">
-      <v-card width="88%" variant="flat" height="900px">
-        <v-card-title class="text-h3 pb-8 text-centre">
+      <v-card width="88%" variant="flat" height="1000px">
+        <v-card-title class="text-h3 pb-8 text-center">
           Our Tech Stack
         </v-card-title>
         <v-carousel show-arrows="hover" height="100%" hide-delimiter-background>
           <v-carousel-item v-for="(slide, i) in slides" :key="i">
             <v-card class="rounded-xl" color="black" height="90%" width="100%">
               <v-card-title class="pa-12">
-                <v-icon class="pr-4 pb-2">mdi-code-tags</v-icon>
-                <a class="text-h4">{{ slide.name }}</a>
-                <v-card class="mt-5 mx-auto" color="black" flex max-width="800">
+                <div class="text-center">
+                  <v-icon class="pr-4 pb-2 text-center">mdi-code-tags</v-icon>
+                  <a class="text-h4 text-center">{{ slide.name }}</a>
+                </div>
+
+                <v-card
+                  class="mt-5 mx-auto text-center"
+                  color="black"
+                  flex
+                  max-width="800"
+                >
                   <v-container>
                     <v-row>
                       <v-col v-if="slide.noOfItems >= 1">
@@ -85,8 +93,20 @@
                           :subtitle="slide.items[3].subtitle"
                         ></tech-card>
                       </v-col>
-                      <v-col v-if="slide.noOfItems >= 5">Tech 5</v-col>
-                      <v-col v-if="slide.noOfItems >= 6">Tech 6</v-col>
+                      <v-col v-if="slide.noOfItems >= 5">
+                        <tech-card
+                          :title="slide.items[4].title"
+                          :icon="slide.items[4].icon"
+                          :subtitle="slide.items[4].subtitle"
+                        ></tech-card
+                      ></v-col>
+                      <v-col v-if="slide.noOfItems >= 6">
+                        <tech-card
+                          :title="slide.items[5].title"
+                          :icon="slide.items[5].icon"
+                          :subtitle="slide.items[5].subtitle"
+                        ></tech-card
+                      ></v-col>
                     </v-row>
                   </v-container>
                 </v-card>
@@ -111,24 +131,28 @@ export default {
           noOfItems: 4,
           items: [
             {
-              icon: "mdi-nodejs",
+              icon: "../public/img/js.png",
+              iconStyle: "normal",
               title: "JavaScript",
               subtitle: "Programming Language",
             },
             {
-              icon: "mdi-vuejs",
+              icon: "../public/img/vue.png",
+              iconStyle: "normal",
               title: "Vue.js",
               subtitle:
-                "Vue.js is a common frontend framework for building user interfaces",
+                "In conjunction with nuxt.js and vuetify, vuejs forms the backbone of our frontend",
             },
             {
-              icon: "mdi-language-html5",
+              icon: "../public/img/html.png",
+              iconStyle: "normal",
               title: "HTML",
               subtitle:
                 "Hyper Text Mark-up Language (HTML) dictates the structure of the website",
             },
             {
-              icon: "mdi-language-css3",
+              icon: "../public/img/css.png",
+              iconStyle: "normal",
               title: "CSS",
               subtitle:
                 "Cascading Style Sheet (CSS) for element design, styling and transitions",
@@ -140,24 +164,28 @@ export default {
           noOfItems: 4,
           items: [
             {
-              icon: "mdi-language-python",
+              icon: "../public/img/python.png",
+              iconStyle: "Python",
               title: "Python",
               subtitle: "Programming Language",
             },
             {
-              icon: "mdi-laptop",
+              icon: "../public/img/flask.jpeg",
+              iconStyle: "Flask",
               title: "Flask",
               subtitle:
                 "Flask is a Python web framework which provides useful tools and features to create apps",
             },
             {
-              icon: "mdi-laptop",
+              icon: "../public/img/firebase.png",
+              iconStyle: "Firebase",
               title: "Firebase",
               subtitle:
                 "Firebase is a backend cloud computing services and application platform provided by Google",
             },
             {
-              icon: "mdi-laptop",
+              icon: "../public/img/mongodb.png",
+              iconStyle: "normal",
               title: "MongoDB",
               subtitle:
                 "MongoDB is a cross-platform document-oriented database program",
@@ -182,7 +210,7 @@ export default {
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
 }
 </style>
