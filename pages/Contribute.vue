@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="contribute-ad" justify="center" align="center">
       <v-col>
-        <v-card variant="flat">
+        <v-card variant="flat" class="py-16">
           <v-card-title class="text-wrap">
             <p class="text-h3 text-left">At TCG, we design, code and manage</p>
 
@@ -41,7 +41,7 @@
     </v-row>
 
     <v-row justify="center" align="center" class="tech-stack">
-      <v-card width="88%" variant="flat" height="1000px">
+      <v-card width="88%" variant="flat" height="1000px" class="">
         <v-card-title class="text-h3 pb-8 text-center">
           Our Tech Stack
         </v-card-title>
@@ -170,7 +170,7 @@ export default {
               subtitle: "Programming Language",
             },
             {
-              icon: "../public/img/flask.jpeg",
+              icon: "../public/img/flask.png",
               iconStyle: "Flask",
               title: "Flask",
               subtitle:
