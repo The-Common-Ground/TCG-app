@@ -2,7 +2,7 @@
   <div class="mx-16">
     <p class="text-h2">How to publicise your events?</p>
     <div class="my-10">
-      <p class="text-subtitle-2 my-3" v-for="(detail, i) in details">
+      <p class="text-h6 my-3" v-for="(detail, i) in details">
         {{ detail.text }}
       </p>
     </div>
