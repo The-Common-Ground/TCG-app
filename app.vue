@@ -35,4 +35,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+.primary-colour {
+  background-color: #fae3ce;
+}
+.primary-colour-dark {
+  background-color: #f69033;
+}
+.secondary-colour {
+  background-color: #e6f7fb;
+}
 </style>

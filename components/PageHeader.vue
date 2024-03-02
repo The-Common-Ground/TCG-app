@@ -1,34 +1,54 @@
 <template>
-  <v-app-bar app color="white" elevate-on-scroll>
-    <v-tabs align-with-title>
-      <v-icon class="logo">mdi-heart </v-icon>
-      <v-tab to="/">Home </v-tab>
-      <v-tab to="/aboutus">About Us </v-tab>
-      <v-tab to="/joinavia">Join a VIA</v-tab>
-      <v-tab to="/resources">VIA Resources</v-tab>
-      <v-tab to="/contribute">Contribute</v-tab>
-    </v-tabs>
+  <v-app-bar app color="white" density="prominent" elevate-on-scroll>
+    <div
+      style="
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      "
+      class="d-flex px-10 mx-10"
+    >
+      <div class="d-flex px-3">
+        <img class="logo" src="/public/logo.png" />
+        <p class="my-auto text-h6">The Common Ground</p>
+      </div>
+
+      <v-tabs align-tabs="center" height="80" class="px-10">
+        <v-tab v-for="(page, i) in pages" :to="page.link">{{
+          page.name
+        }}</v-tab>
+      </v-tabs>
+    </div>
 
     <v-spacer></v-spacer>
-    <v-btn to="/login" rounded="xl"> Login </v-btn>
-    <v-sheet color="#0b4e99" rounded="xl" height="40">
-      <v-btn to="signup" variant="text" class="sign-up-btn" rounded="xl">
-        Sign up with google
-        <v-icon class="pb-1 pl-1">mdi-arrow-right</v-icon></v-btn
-      >
-    </v-sheet>
   </v-app-bar>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      pages: [
+        { name: "Home", link: "/" },
+        { name: "Calendar", link: "/calendar" },
+        { name: "Events", link: "/events" },
+        { name: "Publicise", link: "/publicise" },
+        { name: "About Us", link: "/about" },
+        { name: "Contribute", link: "/contribute" },
+      ],
+    };
+  },
+};
+</script>
 <style>
 .sign-up-btn {
   margin-top: 2px;
 }
 .logo {
-  box-sizing: border-box;
-  padding: 32px;
-  padding-right: 50px;
-  padding-left: 50px;
+  position: relative;
+  height: 80px;
+  width: 80px;
+  margin-right: 10px;
 }
 </style>
