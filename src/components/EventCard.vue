@@ -7,11 +7,21 @@
     <div class="event-text pa-5">
       <p class="text-h4">{{ name }}</p>
       <p>{{ description }}</p>
+      <v-btn
+        class="mt-5 mx-n3"
+        variant="text"
+        color="indigo-darken-4"
+        :to="`/events/${name}`"
+      >
+        <p>Check it out</p>
+        <v-icon class="px-3">mdi-arrow-right</v-icon>
+      </v-btn>
+      <v-spacer></v-spacer>
       <v-chip
         v-for="(label, i) in toRaw(labels)"
         class="mt-5 mx-1 primary-colour"
-        >{{ label }}</v-chip
-      >
+        >{{ label }}
+      </v-chip>
     </div>
   </v-sheet>
 </template>
