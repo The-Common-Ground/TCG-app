@@ -31,7 +31,6 @@ export default {
     return {
       pages: [
         { name: "Home", link: "/" },
-        { name: "Calendar", link: "/calendar" },
         { name: "Events", link: "/events" },
         { name: "Publicise", link: "/publicise" },
         { name: "About Us", link: "/about" },

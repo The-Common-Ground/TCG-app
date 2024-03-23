@@ -1,4 +1,10 @@
 {
+  "eventSlides": [
+    "/default/elderly.png",
+    "/default/community.png",
+    "/default/youth.png",
+    "/default/children.png"
+  ],
   "events": [
     {
       "title": "ABC",

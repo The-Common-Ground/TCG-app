@@ -1,7 +1,15 @@
-<template>
-  <div class="d-flex flex-column flex-fill">
+<template>      
+  <div class="d-flex flex-column flex-fill"><v-carousel cycle hide-delimiters show-arrows="hover">
+        <v-carousel-item v-for="(slide, i) in slides">
+          <div class="d-flex flex-fill justify-center">
+            <img class="slide" :src="slide"/>
+          </div>
+
+        </v-carousel-item>
+
+      </v-carousel>
     <div class="mx-16 my-10">
-      
+
       <!-- Search Bar -->
       <div class="d-flex justify-center align-center">
         <input class="search-bar" placeholder="Search Events" v-model="userSearchContent"></input>
@@ -76,6 +84,9 @@ export default {
   data() {
     return {
       showResults: false,
+      
+      // Carousel 
+      slides: dummy.eventSlides,
 
       // Search Bar
       userSearchContent: null,
@@ -112,6 +123,10 @@ export default {
   background: #D9D9D9;
 
   text-align: center;
+}
 
+.slide {
+  width: 100%;
+  object-fit: fill;
 }
 </style>

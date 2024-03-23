@@ -1,7 +1,7 @@
 <template>
   <v-card color="black" max-width="250px">
     <v-card-title>
-      <NuxtImg class="icon" :src="icon" />
+      <img class="icon" :src="icon" />
       <v-spacer></v-spacer>
       <a class="text-h4 bold">{{ title }}</a>
       <v-spacer></v-spacer>

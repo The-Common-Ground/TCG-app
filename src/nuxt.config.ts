@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   modules: [
-    "@nuxt/image",
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error

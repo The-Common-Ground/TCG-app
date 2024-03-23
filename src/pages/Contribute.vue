@@ -37,58 +37,26 @@
       hide-delimiter-background
     >
       <v-carousel-item v-for="(slide, i) in slides" :key="i">
-        <v-card class="mx-auto text-center" color="black" rounded="xl" flex>
-          <div class="d-flex align-center justify-center pt-10">
-            <v-icon class="pr-4 pb-2">mdi-code-tags</v-icon>
+        <v-card
+          class="d-flex flex-fill flex-column text-center justify-center"
+          color="black"
+          rounded="xl"
+          flex
+        >
+          <div class="d-flex justify-center pt-10">
+            <v-icon class="pr-5 pt-4">mdi-code-tags</v-icon>
             <p class="text-h4">{{ slide.name }}</p>
           </div>
 
           <div class="py-10">
-            <div class="d-flex justify-center">
+            <div class="d-flex justify-center flex-wrap">
               <tech-card
-                v-if="slide.noOfItems >= 1"
-                :title="slide.items[0].title"
-                :subtitle="slide.items[0].subtitle"
-                :icon="slide.items[0].icon"
+                v-for="(tech, i) in slide.items"
+                :title="tech.title"
+                :subtitle="tech.subtitle"
+                :icon="tech.icon"
               >
               </tech-card>
-
-              <tech-card
-                v-if="slide.noOfItems >= 2"
-                :title="slide.items[1].title"
-                :icon="slide.items[1].icon"
-                :subtitle="slide.items[1].subtitle"
-              ></tech-card>
-
-              <tech-card
-                v-if="slide.noOfItems >= 3"
-                :title="slide.items[2].title"
-                :icon="slide.items[2].icon"
-                :subtitle="slide.items[2].subtitle"
-              ></tech-card>
-            </div>
-
-            <div class="d-flex justify-center">
-              <tech-card
-                v-if="slide.noOfItems >= 4"
-                :title="slide.items[3].title"
-                :icon="slide.items[3].icon"
-                :subtitle="slide.items[3].subtitle"
-              ></tech-card>
-
-              <tech-card
-                v-if="slide.noOfItems >= 5"
-                :title="slide.items[4].title"
-                :icon="slide.items[4].icon"
-                :subtitle="slide.items[4].subtitle"
-              ></tech-card>
-
-              <tech-card
-                v-if="slide.noOfItems >= 6"
-                :title="slide.items[5].title"
-                :icon="slide.items[5].icon"
-                :subtitle="slide.items[5].subtitle"
-              ></tech-card>
             </div>
           </div>
         </v-card>
@@ -117,23 +85,21 @@ export default {
             {
               icon: "tech/vue.png",
               iconStyle: "normal",
-              title: "Vue.js",
+              title: "Vuejs",
               subtitle:
                 "In conjunction with nuxt.js and vuetify, vuejs forms the backbone of our frontend",
             },
             {
-              icon: "tech/html.png",
-              iconStyle: "normal",
-              title: "HTML",
+              icon: "tech/nuxt.png",
+              title: "Nuxtjs",
               subtitle:
-                "Hyper Text Mark-up Language (HTML) dictates the structure of the website",
+                "Nuxtjs is a Vue framework that makes web development intuitive and powerful",
             },
             {
-              icon: "tech/css.png",
-              iconStyle: "normal",
-              title: "CSS",
+              icon: "tech/firebase.png",
+              title: "Firebase",
               subtitle:
-                "Cascading Style Sheet (CSS) for element design, styling and transitions",
+                "Firebase is a backend cloud computing services and application platform provided by Google",
             },
           ],
         },
@@ -143,27 +109,18 @@ export default {
           items: [
             {
               icon: "tech/python.png",
-              iconStyle: "Python",
               title: "Python",
               subtitle: "Programming Language",
             },
             {
               icon: "tech/flask.png",
-              iconStyle: "Flask",
               title: "Flask",
               subtitle:
                 "Flask is a Python web framework which provides useful tools and features to create apps",
             },
-            {
-              icon: "tech/firebase.png",
-              iconStyle: "Firebase",
-              title: "Firebase",
-              subtitle:
-                "Firebase is a backend cloud computing services and application platform provided by Google",
-            },
+
             {
               icon: "tech/mongodb.png",
-              iconStyle: "normal",
               title: "MongoDB",
               subtitle:
                 "MongoDB is a cross-platform document-oriented database program",
