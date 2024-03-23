@@ -1,7 +1,7 @@
 <template>
-  <div class="mx-16">
-    <p class="text-h2">How to publicise your events?</p>
-    <div class="my-10">
+  <div class="pa-16">
+    <p class="text-h2 py-5">How to publicise your events?</p>
+    <div class="mt-5 mb-10">
       <p class="text-h6 my-3" v-for="(detail, i) in details">
         {{ detail.text }}
       </p>

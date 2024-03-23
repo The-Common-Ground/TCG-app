@@ -1,12 +1,18 @@
 <template>
-  <div class="d-flex flex-wrap flex-fill align-center justify-center">
-    <CalendarCard
-      class="mx-3"
-      v-for="(event, i) in eventsSorted"
-      :src="event.img"
-      :dateTime="event.dateTime"
-      :title="event.title"
-    ></CalendarCard>
+  <div class="d-flex flex-column flex-fill align-center justify-center">
+    <div>
+      <p class="text-h4 my-16 header">Upcoming Event</p>
+    </div>
+
+    <div class="d-flex">
+      <CalendarCard
+        class="mx-3"
+        v-for="(event, i) in eventsSorted"
+        :src="event.img"
+        :dateTime="event.dateTime"
+        :title="event.title"
+      ></CalendarCard>
+    </div>
   </div>
 </template>
 
@@ -37,3 +43,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.header {
+  border: solid;
+  padding: 20px;
+}
+</style>

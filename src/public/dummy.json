@@ -16,7 +16,7 @@
           "icon": "mdi-web"
         }
       ],
-      "img": "/default/youth.png",
+      "img": "/default/elderly.png",
       "dateTime": "2024-03-25T12:00:00"
     },
     {
@@ -35,7 +35,7 @@
           "icon": "mdi-web"
         }
       ],
-      "img": "/default/youth.png",
+      "img": "/default/community.png",
       "dateTime": "2024-03-25T09:00:00"
     }
   ]

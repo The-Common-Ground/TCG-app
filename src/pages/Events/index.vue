@@ -25,9 +25,9 @@
       </div>
 
       <!-- Top Categories -->
-      <p v-if="!showResults" class="my-8 text-h4 font-weight-bold" >Top Categories</p>
-      <div v-if="!showResults" class="d-flex flex-wrap flex-fill">
-      
+      <p v-if="!showResults" class="my-8 mx-2 text-h4 font-weight-bold">Top Categories</p>
+
+      <div v-if="!showResults" class="d-flex flex-wrap flex-fill justify-center">
         <div v-for="label in labels" class="top-category-btn text-h6" @click="alert('Clicked')">
           <v-btn variant="text" style="padding: 50%">{{ label.name }}</v-btn>
         </div>
@@ -107,10 +107,9 @@ export default {
 }
 
 .top-category-btn {
-  width: 30%;
+  width: 45%;
   margin: 10px;
   background: #D9D9D9;
-  aspect-ratio: 1/1;
 
   text-align: center;
 

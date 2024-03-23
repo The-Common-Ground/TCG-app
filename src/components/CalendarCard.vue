@@ -1,5 +1,10 @@
 <template>
-  <v-card class="calendar-card" elevation="5" :image="imgDisplay(src)">
+  <v-card
+    class="calendar-card"
+    :image="imgDisplay(src)"
+    :href="`/events/${title}`"
+    hover
+  >
     <div class="label">
       <p class="text-h6 text-wrap text-center pa-2">{{ timeDisplay }}</p>
     </div>
