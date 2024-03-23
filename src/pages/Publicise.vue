@@ -2,7 +2,7 @@
   <div class="mx-16">
     <p class="text-h2">How to publicise your events?</p>
     <div class="my-10">
-      <p class="text-subtitle-2 my-3" v-for="(detail, i) in details">
+      <p class="text-h6 my-3" v-for="(detail, i) in details">
         {{ detail.text }}
       </p>
     </div>
@@ -17,7 +17,9 @@ export default {
         {
           text: "Listing your project on our website is a great way to publicise it",
         },
-        { text: "Fill in the folllowing Google Form to list your project" },
+        {
+          text: "Fill in the folllowing Google Form to list your project",
+        },
         { text: "1. Submit a brief description of your project" },
         {
           text: "2. Submit the text and images you would like us to put up on TCG",

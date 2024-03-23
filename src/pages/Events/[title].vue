@@ -1,13 +1,16 @@
 <template>
-  <div class="page-layout d-flex flex-fill flex-column justify-left">
+  <div
+    v-if="this.event"
+    class="page-layout d-flex flex-fill flex-column justify-left"
+  >
     <div class="my-5">
       <p class="text-h3 font-weight-bold">This is</p>
       <p class="text-h2">{{ "Project " + title }}</p>
     </div>
 
-    <img :src="srcPath()" />
+    <img :src="srcPath(event.img)" />
     <p class="section-header my-8 text-h4">Description</p>
-    <p class="mb-10 text-h6">{{ details.description }}</p>
+    <p class="mb-10 text-h6">{{ event.description }}</p>
 
     <div
       class="d-flex flex-fill mt-3 py-3 justify-center"
@@ -16,53 +19,44 @@
       <p class="text-h6">Find out more on</p>
 
       <v-btn
-        v-for="platform in details.platforms"
+        v-for="platform in event.platforms"
         class="mx-2"
         @click="redirect(platform.url)"
       >
-        {{ platform.platform }}
+        {{ platform.title }}
         <v-icon>{{ platform.icon }}</v-icon>
       </v-btn>
     </div>
   </div>
+  <div v-else>
+    <NotFound></NotFound>
+  </div>
 </template>
 
 <script>
+import dummy from "/public/dummy.json";
+import NotFound from "/components/NotFound.vue";
+
 export default {
+  components: {
+    NotFound,
+  },
+
   data() {
     return {
       title: this.$route.params.title,
-
-      details: {
-        src: "",
-        description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        platforms: [
-          {
-            platform: "Instagram",
-            url: "https://www.instagram.com",
-            icon: "mdi-instagram",
-          },
-          {
-            platform: "Official",
-            url: "",
-            icon: "mdi-web",
-          },
-        ],
-      },
     };
   },
 
   methods: {
-    srcPath() {
-      if (this.details.src) {
-        return this.src;
+    srcPath(src) {
+      if (src) {
+        return src;
       } else {
         return "/default/youth.png";
       }
     },
     redirect(url) {
-      console.log(url);
       if (url) {
         const link = document.createElement("a");
         link.href = url;
@@ -72,6 +66,16 @@ export default {
         alert("URL not found");
       }
     },
+    pageExists() {
+      return dummy.events.find((element) => {
+        if (element.title === this.title) {
+          return true;
+        }
+      });
+    },
+  },
+  beforeMount() {
+    this.event = this.pageExists();
   },
 };
 </script>

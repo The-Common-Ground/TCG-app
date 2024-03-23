@@ -1,0 +1,42 @@
+{
+  "events": [
+    {
+      "title": "ABC",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "labels": ["SIV", "Fundraising"],
+      "platforms": [
+        {
+          "title": "Instagram",
+          "url": "https://www.instagram.com",
+          "icon": "mdi-instagram"
+        },
+        {
+          "title": "Official",
+          "url": "",
+          "icon": "mdi-web"
+        }
+      ],
+      "img": "/default/youth.png",
+      "dateTime": "2024-03-25T12:00:00"
+    },
+    {
+      "title": "XYZ",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+      "labels": ["SIV", "Fundraising"],
+      "platforms": [
+        {
+          "title": "Instagram",
+          "url": "https://www.instagram.com",
+          "icon": "mdi-instagram"
+        },
+        {
+          "title": "Official",
+          "url": "",
+          "icon": "mdi-web"
+        }
+      ],
+      "img": "/default/youth.png",
+      "dateTime": "2024-03-25T09:00:00"
+    }
+  ]
+}

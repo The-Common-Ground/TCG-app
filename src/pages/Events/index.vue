@@ -34,9 +34,6 @@
       </div>
     </div>
     
-    
-
-
     <EventCard
     v-if="showResults"
       v-for="(event, i) in events"
@@ -51,6 +48,7 @@
 
 <script>
 import EventCard from "../components/EventCard.vue";
+import dummy from "/public/dummy.json"
 
 export default {
   components: {
@@ -70,6 +68,11 @@ export default {
       console.log(id)
     }
   },
+  computed: {
+    events() {
+      return dummy.events
+    }
+  },
   data() {
     return {
       showResults: false,
@@ -85,24 +88,6 @@ export default {
         { name: "SIV", id: "SIV" },
         {name: "Charity", id: "Charity"},
         { name: "Fundraising", id: "Fundraising" }
-      ],
-      
-      // Dummy Data
-      events: [
-        {
-          title: "ABC",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-          labels: ["SIV", "Fundraising"],
-          img: "",
-        },
-        {
-          title: "XYZ",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-          labels: ["SIV", "Fundraising"],
-          img: "",
-        },
       ],
     };
   },
