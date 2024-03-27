@@ -11,26 +11,18 @@
     <div class="mx-16 my-10">
 
       <!-- Search Bar -->
-      <div class="d-flex justify-center align-center">
+      <v-toolbar class="py-2" color="#00000000" floating>
+        <v-icon class="mx-5">mdi-magnify</v-icon>
         <input class="search-bar" placeholder="Search Events" v-model="userSearchContent"></input>
+
         <v-menu>
           <template v-slot:activator="{ props }">
             <v-btn rounded="xl" class="primary-colour-dark mx-5 py-8" v-bind="props">
               <v-icon class="my-n1">mdi-filter</v-icon>
             </v-btn>
           </template>
-
-          <v-btn
-            v-for="label in labels"
-            @click="search(label.id)"
-            variant="outlined"
-            height="50"
-            width="200"
-            class="text-center primary-colour"
-          >{{ label.name }}
-          </v-btn>
         </v-menu>
-      </div>
+      </v-toolbar>
 
       <!-- Top Categories -->
       <p v-if="!showResults" class="my-8 mx-2 text-h4 font-weight-bold">Top Categories</p>

@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <page-header v-if="render"></page-header>
+    <page-header v-if="render" :size="size"></page-header>
     <v-main
       class="d-flex align-center justify-center"
       style="min-height: 300px"
     >
-      <Nuxt-page v-if="render"> </Nuxt-page>
+      <Nuxt-page v-if="render" :size="size"> </Nuxt-page>
     </v-main>
-    <page-footer v-if="render"></page-footer>
+    <page-footer v-if="render" :size="size"></page-footer>
   </v-app>
 </template>
 
