@@ -1,16 +1,14 @@
 <template>
-  <Nuxtlayout>
-    <v-app>
-      <page-header></page-header>
-      <v-main
-        class="d-flex align-center justify-center"
-        style="min-height: 300px"
-      >
-        <Nuxt-page />
-      </v-main>
-      <page-footer></page-footer>
-    </v-app>
-  </Nuxtlayout>
+  <v-app>
+    <page-header v-if="render"></page-header>
+    <v-main
+      class="d-flex align-center justify-center"
+      style="min-height: 300px"
+    >
+      <Nuxt-page v-if="render"> </Nuxt-page>
+    </v-main>
+    <page-footer v-if="render"></page-footer>
+  </v-app>
 </template>
 
 <script>
@@ -22,6 +20,35 @@ export default {
   components: {
     PageFooter,
     PageHeader,
+  },
+  data() {
+    return {
+      render: false,
+      currentSize: null,
+    };
+  },
+
+  methods: {
+    renderEvent() {
+      this.width = window.outerWidth;
+      this.size = 1100 >= this.width > 0 ? "s" : "l";
+
+      if (this.size != this.currentSize) {
+        this.currentSize = this.size;
+        this.render = false;
+        this.render = true;
+        // console.log(this.width, this.size);
+      }
+    },
+  },
+
+  mounted() {
+    this.renderEvent();
+    window.addEventListener("resize", this.renderEvent);
+  },
+
+  unmounted() {
+    window.removeEventListener("resize", this.renderEvent);
   },
 };
 </script>
