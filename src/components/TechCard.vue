@@ -3,7 +3,7 @@
     <v-card-title>
       <img class="icon" :src="icon" />
       <v-spacer></v-spacer>
-      <a class="text-h4 bold">{{ title }}</a>
+      <a class="text-h5 bold">{{ title }}</a>
       <v-spacer></v-spacer>
       <v-container class="pt-1">
         <v-col>

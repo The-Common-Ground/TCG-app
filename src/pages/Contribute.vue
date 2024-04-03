@@ -18,11 +18,26 @@
       </v-card-title>
 
       <div class="my-10">
-        <v-btn variant="outlined" density="default" width="150" class="mx-3">
+        <v-btn
+          variant="outlined"
+          density="default"
+          width="150"
+          class="mx-3"
+          @click="pushLink('https://github.com/The-Common-Ground')"
+        >
           <v-icon class="pr-2"> mdi-github</v-icon>
           Github
         </v-btn>
-        <v-btn variant="outlined" density="default" width="150">
+        <v-btn
+          variant="outlined"
+          density="default"
+          width="150"
+          @click="
+            pushLink(
+              'https://www.figma.com/file/l56DrGjRTymHebz9TelsYk/TCG-Design?type=design&node-id=0%3A1&mode=design&t=W2OoyMHqtcyV7fRB-1'
+            )
+          "
+        >
           <v-icon class="pr-2"> mdi-draw </v-icon>
           Figma
         </v-btn>
@@ -74,7 +89,6 @@ export default {
       slides: [
         {
           name: "Frontend",
-          noOfItems: 4,
           items: [
             {
               icon: "tech/js.png",
@@ -105,7 +119,6 @@ export default {
         },
         {
           name: "Backend",
-          noOfItems: 4,
           items: [
             {
               icon: "tech/python.png",
@@ -113,17 +126,39 @@ export default {
               subtitle: "Programming Language",
             },
             {
-              icon: "tech/flask.png",
-              title: "Flask",
+              icon: "tech/fastapi.png",
+              title: "FastAPI",
               subtitle:
-                "Flask is a Python web framework which provides useful tools and features to create apps",
+                "FastAPI is a modern web framework for builidng RESTful APIs in Python.",
             },
-
             {
               icon: "tech/mongodb.png",
               title: "MongoDB",
               subtitle:
-                "MongoDB is a cross-platform document-oriented database program",
+                "MongoDB is a cross-platform document-oriented database program.",
+            },
+            {
+              icon: "tech/gcloud.png",
+              title: "Google Cloud",
+              subtitle:
+                "Google Cloud Run, offered by Google Cloud, is used to containerize, deploy our server application.",
+            },
+          ],
+        },
+        {
+          name: "Development Tools",
+          items: [
+            {
+              icon: "tech/actions.png",
+              title: "Github Actions",
+              subtitle:
+                "Github Actions makes it easy to automate software workflows, with CI/CD.",
+            },
+            {
+              icon: "tech/docker.png",
+              title: "Docker",
+              subtitle:
+                "Docker help developers build, share, and run container applications.",
             },
           ],
         },
@@ -131,6 +166,14 @@ export default {
     };
   },
   components: { TechCard },
+  methods: {
+    pushLink(href) {
+      const link = document.createElement("a");
+      link.href = href;
+      link.target = "__blank";
+      link.click();
+    },
+  },
 };
 </script>
 <style>
