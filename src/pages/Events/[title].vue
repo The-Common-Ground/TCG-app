@@ -53,7 +53,7 @@ export default {
       if (src) {
         return src;
       } else {
-        return "/default/youth.png";
+        return "/default/placeholder.jpg";
       }
     },
     redirect(url) {

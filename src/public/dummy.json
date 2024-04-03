@@ -1,10 +1,5 @@
 {
-  "eventSlides": [
-    "/default/elderly.png",
-    "/default/community.png",
-    "/default/youth.png",
-    "/default/children.png"
-  ],
+  "eventSlides": ["/default/volunteering.png", "/default/NYC.jpg"],
   "events": [
     {
       "title": "ABC",
@@ -22,7 +17,7 @@
           "icon": "mdi-web"
         }
       ],
-      "img": "/default/elderly.png",
+      "img": "",
       "dateTime": "2024-03-25T12:00:00"
     },
     {
@@ -41,7 +36,7 @@
           "icon": "mdi-web"
         }
       ],
-      "img": "/default/community.png",
+      "img": "",
       "dateTime": "2024-03-25T09:00:00"
     }
   ]

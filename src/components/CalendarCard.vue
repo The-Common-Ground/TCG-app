@@ -32,7 +32,7 @@ export default {
       if (src) {
         return src;
       } else {
-        return "/default/default.jpg";
+        return "/default/placeholder.jpg";
       }
     },
   },

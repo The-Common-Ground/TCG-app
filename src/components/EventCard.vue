@@ -34,7 +34,7 @@ export default {
       if (this.img) {
         return this.img;
       } else {
-        return "/default/youth.png";
+        return "/default/placeholder.jpg";
       }
     },
   },

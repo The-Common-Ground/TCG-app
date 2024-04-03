@@ -1,7 +1,8 @@
 <template>      
-  <div class="d-flex flex-column flex-fill"><v-carousel cycle hide-delimiters show-arrows="hover">
+  <div class="d-flex flex-column flex-fill">
+    <v-carousel cycle hide-delimiters show-arrows="hover">
         <v-carousel-item v-for="(slide, i) in slides">
-          <div class="d-flex flex-fill justify-center">
+          <div class="d-flex flex-fill align-center">
             <img class="slide" :src="slide"/>
           </div>
 
@@ -119,6 +120,13 @@ export default {
 
 .slide {
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  object-fit: contain;
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
 }
 </style>
