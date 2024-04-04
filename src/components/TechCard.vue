@@ -5,11 +5,7 @@
       <v-spacer></v-spacer>
       <a class="text-h5 bold">{{ title }}</a>
       <v-spacer></v-spacer>
-      <v-container class="pt-1">
-        <v-col>
-          <a class="text-subtitle-2 text-wrap"> {{ subtitle }}</a>
-        </v-col>
-      </v-container>
+      <p class="text-subtitle-2 my-4 text-wrap">{{ subtitle }}</p>
     </v-card-title>
   </v-card>
 </template>
