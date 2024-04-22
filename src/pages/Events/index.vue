@@ -25,8 +25,24 @@
         </v-menu>
       </v-toolbar>
 
+      <div class="d-flex flex-column flex-fill align-left justify-left">
+        <div>
+          <p class="text-h4 my-10 font-weight-bold header">Upcoming Event</p>
+        </div>
+
+        <div class="d-flex">
+          <CalendarCard
+            class="mx-3"
+            v-for="(event, i) in eventsSorted"
+            :src="event.img"
+            :dateTime="event.dateTime"
+            :title="event.title"
+          ></CalendarCard>
+        </div>
+      </div>
+
       <!-- Top Categories -->
-      <p v-if="!showResults" class="my-8 mx-2 text-h4 font-weight-bold">Top Categories</p>
+      <p v-if="!showResults" class="text-h4 my-10 font-weight-bold header">Top Categories</p>
 
       <div v-if="!showResults" class="d-flex flex-wrap flex-fill justify-center">
         <div v-for="label in labels" class="top-category-btn text-h6" @click="alert('Clicked')">
@@ -50,10 +66,12 @@
 <script>
 import EventCard from "../components/EventCard.vue";
 import dummy from "/public/dummy.json"
+import CalendarCard from "../components/CalendarCard.vue";
 
 export default {
   components: {
     EventCard,
+    CalendarCard,
   },
   watch: {
     userSearchContent(newValue, oldValue) {
@@ -72,12 +90,23 @@ export default {
   computed: {
     events() {
       return dummy.events
-    }
+    },
+    eventsSorted() {
+      return this.rawEvents
+        .map((element, i, array) => {
+          element.dateTime = new Date(element.dateTime);
+          return element;
+        })
+        .sort((a, b) => {
+          return a.dateTime.getTime() - b.dateTime.getTime();
+        });
+    },
   },
   data() {
     return {
       showResults: false,
-      
+      rawEvents: toRaw(dummy.events),
+
       // Carousel 
       slides: dummy.eventSlides,
 
@@ -111,8 +140,10 @@ export default {
 }
 
 .top-category-btn {
-  width: 45%;
-  margin: 10px;
+  width: 400px;
+  height: 400px;
+  margin-block: 10px;
+  margin-inline: 10px;
   background: #D9D9D9;
 
   text-align: center;
@@ -127,6 +158,11 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
+
+.header {
+  border: bottom;
+  padding: 20px;
+}
+
 </style>
