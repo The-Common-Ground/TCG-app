@@ -55,7 +55,7 @@ export default {
     return {
       pages: [
         { name: "Home", link: "/" },
-        { name: "Events", link: "/events" },
+        { name: "Calendar", link: "/calendar" },
         { name: "Publicise", link: "/publicise" },
         { name: "About Us", link: "/about" },
         { name: "Contribute", link: "/contribute" },

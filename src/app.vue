@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <page-header v-if="render" :size="size"></page-header>
+    <page-header v-if="render" :size="size" :width="width"></page-header>
     <v-main
       class="d-flex align-center justify-center"
       style="min-height: 300px"
     >
-      <Nuxt-page v-if="render" :size="size"> </Nuxt-page>
+      <Nuxt-page v-if="render" :size="size" :width="width"> </Nuxt-page>
     </v-main>
-    <page-footer v-if="render" :size="size"></page-footer>
+    <page-footer v-if="render" :size="size" :width="width"></page-footer>
   </v-app>
 </template>
 
@@ -25,6 +25,7 @@ export default {
     return {
       render: false,
       currentSize: null,
+      width: null,
     };
   },
 

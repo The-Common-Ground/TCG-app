@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import dummy from "/public/dummy.json";
+import events from "/public/events.json";
 import NotFound from "/components/NotFound.vue";
 
 export default {
@@ -67,7 +67,7 @@ export default {
       }
     },
     pageExists() {
-      return dummy.events.find((element) => {
+      return events.events.find((element) => {
         if (element.title === this.title) {
           return true;
         }
