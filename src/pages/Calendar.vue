@@ -1,31 +1,15 @@
 <template>
-  <div class="d-flex flex-column my-16">
-    <v-sheet class="d-flex flex-fill">
-      <v-select
-        v-model="type"
-        :items="types"
-        class="ma-2"
-        label="View Mode"
-        variant="outlined"
-        dense
-        hide-details
-      ></v-select>
-    </v-sheet>
-    <v-sheet :width="width - 100">
-      <v-calendar
-        ref="calendar"
-        v-model="value"
-        :events="events"
-        :view-mode="type"
-      ></v-calendar>
-    </v-sheet>
-  </div>
+  <CalendarTable></CalendarTable>
 </template>
 
 <script>
 import events from "/public/events.json";
+import CalendarTable from "../components/CalendarTable.vue";
 
 export default {
+  components: {
+    CalendarTable,
+  },
   props: {
     width: Number,
   },
