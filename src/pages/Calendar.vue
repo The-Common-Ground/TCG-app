@@ -1,9 +1,25 @@
 <template>
-  <CalendarTable></CalendarTable>
+  <div class="d-flex flex-column">
+    <div class="d-flex flex-fill align-center my-5" style="padding-inline: 10%">
+      <v-btn variant="text" @click="decrementMonth" class="text-h4"><</v-btn>
+      <v-btn variant="text" @click="incrementMonth" class="text-h4">></v-btn>
+
+      <p class="pa-2 text-h5 text-center">
+        {{ `${selectedMonth} ${year}` }}
+      </p>
+    </div>
+
+    <CalendarTable
+      class="mx-auto"
+      :month="month"
+      :year="year"
+      :key="`${month}${year}`"
+      v-if="render"
+    ></CalendarTable>
+  </div>
 </template>
 
 <script>
-import events from "/public/events.json";
 import CalendarTable from "../components/CalendarTable.vue";
 
 export default {
@@ -14,52 +30,50 @@ export default {
     width: Number,
   },
   data: () => ({
-    eventsinJSON: toRaw(events).events,
-
-    type: "month",
-    types: ["month", "week", "day"],
-    value: [new Date()],
-    eventTypes: [
-      { title: "Fundraising", color: "blue" },
-      { title: "HAPPENING NOW!", color: "red" },
-      { title: "External", color: "indigo" },
-      { title: "FUN AND GAMES", color: "orange" },
-    ],
+    // Month Selector
+    month: new Date(Date.now()).getMonth(),
+    year: new Date(Date.now()).getFullYear(),
+    render: true,
   }),
-  mounted() {
-    this.showEvents();
+  computed: {
+    selectedMonth() {
+      const longMonths = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      return longMonths[this.month];
+    },
   },
-  computed: {},
   methods: {
-    showEvents() {
-      const events = [];
-
-      for (event of this.eventsinJSON) {
-        let eventDateTime = new Date(event.dateTime);
-        events.push({
-          title: `${eventDateTime.getHours()}:${
-            eventDateTime.getMinutes() > 9
-              ? eventDateTime.getMinutes()
-              : `0${eventDateTime.getMinutes()}`
-          } ${event.title}`,
-          start: eventDateTime,
-          end: eventDateTime,
-          color: this.eventTypes.find((eventType) => {
-            if (eventType.title === event.labels[0]) {
-              return true;
-            }
-          }).color,
-          allDay: false,
-        });
+    incrementMonth() {
+      this.render = false;
+      this.month++;
+      if (this.month > 11) {
+        this.year++;
+        this.month = 0;
       }
-
-      this.events = events;
+      this.render = true;
+      console.log("Render");
     },
-    getEventColor(event) {
-      return event.color;
-    },
-    rnd(a, b) {
-      return Math.floor((b - a + 1) * Math.random()) + a;
+    decrementMonth() {
+      this.render = false;
+      this.month--;
+      if (this.month < 0) {
+        this.year--;
+        this.month = 11;
+      }
+      this.render = true;
+      console.log("Render");
     },
   },
 };

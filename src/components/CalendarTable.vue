@@ -12,77 +12,88 @@
 
     <tbody>
       <tr style="height: 100px">
-        <td>{{ showCell(0) }}</td>
-        <td>{{ showCell(1) }}</td>
-        <td>{{ showCell(2) }}</td>
-        <td>{{ showCell(3) }}</td>
-        <td>{{ showCell(4) }}</td>
-        <td>{{ showCell(5) }}</td>
-        <td>{{ showCell(6) }}</td>
+        <td v-html="cells[0]"></td>
+        <td v-html="cells[1]"></td>
+        <td v-html="cells[2]"></td>
+        <td v-html="cells[3]"></td>
+        <td v-html="cells[4]"></td>
+        <td v-html="cells[5]"></td>
+        <td v-html="cells[6]"></td>
       </tr>
       <tr style="height: 100px">
-        <td>{{ showCell(7) }}</td>
-        <td>{{ showCell(8) }}</td>
-        <td>{{ showCell(9) }}</td>
-        <td>{{ showCell(10) }}</td>
-        <td>{{ showCell(11) }}</td>
-        <td>{{ showCell(12) }}</td>
-        <td>{{ showCell(13) }}</td>
+        <td v-html="cells[7]"></td>
+        <td v-html="cells[8]"></td>
+        <td v-html="cells[9]"></td>
+        <td v-html="cells[10]"></td>
+        <td v-html="cells[11]"></td>
+        <td v-html="cells[12]"></td>
+        <td v-html="cells[13]"></td>
       </tr>
       <tr style="height: 100px">
-        <td>{{ showCell(14) }}</td>
-        <td>{{ showCell(15) }}</td>
-        <td>{{ showCell(16) }}</td>
-        <td>{{ showCell(17) }}</td>
-        <td>{{ showCell(18) }}</td>
-        <td>{{ showCell(19) }}</td>
-        <td>{{ showCell(20) }}</td>
+        <td v-html="cells[14]"></td>
+        <td v-html="cells[15]"></td>
+        <td v-html="cells[16]"></td>
+        <td v-html="cells[17]"></td>
+        <td v-html="cells[18]"></td>
+        <td v-html="cells[19]"></td>
+        <td v-html="cells[20]"></td>
       </tr>
       <tr style="height: 100px">
-        <td>{{ showCell(21) }}</td>
-        <td>{{ showCell(22) }}</td>
-        <td>{{ showCell(23) }}</td>
-        <td>{{ showCell(24) }}</td>
-        <td>{{ showCell(25) }}</td>
-        <td>{{ showCell(26) }}</td>
-        <td>{{ showCell(27) }}</td>
+        <td v-html="cells[21]"></td>
+        <td v-html="cells[22]"></td>
+        <td v-html="cells[23]"></td>
+        <td v-html="cells[24]"></td>
+        <td v-html="cells[25]"></td>
+        <td v-html="cells[26]"></td>
+        <td v-html="cells[27]"></td>
       </tr>
       <tr style="height: 100px">
-        <td>{{ showCell(28) }}</td>
-        <td>{{ showCell(29) }}</td>
-        <td>{{ showCell(30) }}</td>
-        <td>{{ showCell(31) }}</td>
-        <td>{{ showCell(32) }}</td>
-        <td>{{ showCell(33) }}</td>
-        <td>{{ showCell(34) }}</td>
+        <td v-html="cells[28]"></td>
+        <td v-html="cells[29]"></td>
+        <td v-html="cells[30]"></td>
+        <td v-html="cells[31]"></td>
+        <td v-html="cells[32]"></td>
+        <td v-html="cells[33]"></td>
+        <td v-html="cells[34]"></td>
       </tr>
       <tr v-if="calendar.rows === 6" style="height: 100px">
-        <td>{{ showCell(35) }}</td>
-        <td>{{ showCell(36) }}</td>
-        <td>{{ showCell(37) }}</td>
-        <td>{{ showCell(38) }}</td>
-        <td>{{ showCell(39) }}</td>
-        <td>{{ showCell(40) }}</td>
-        <td>{{ showCell(41) }}</td>
+        <td v-html="cells[35]"></td>
+        <td v-html="cells[36]"></td>
+        <td v-html="cells[37]"></td>
+        <td v-html="cells[38]"></td>
+        <td v-html="cells[39]"></td>
+        <td v-html="cells[40]"></td>
+        <td v-html="cells[41]"></td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script>
+import events from "/public/events.json";
+
 export default {
+  props: {
+    month: Number,
+    year: Number,
+  },
   data() {
     return {
-      calendar: new Calendar(3, 2024),
+      calendar: new Calendar(this.month, this.year),
+
+      eventsinJSON: toRaw(events).events,
+
+      eventTypes: [
+        { title: "Fundraising", color: "blue" },
+        { title: "HAPPENING NOW!", color: "red" },
+        { title: "External", color: "indigo" },
+        { title: "FUN AND GAMES", color: "orange" },
+      ],
     };
   },
-  methods: {
-    showCell(i) {
-      if (this.calendar.calendar[i]?.length === 0) {
-        return "";
-      } else {
-        return this.calendar.calendar[i]?.join(" ");
-      }
+  computed: {
+    cells() {
+      return this.calendar.generateHTMLTable();
     },
   },
 };

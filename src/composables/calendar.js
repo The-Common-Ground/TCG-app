@@ -27,6 +27,22 @@ export class Calendar {
 
     return [rows, calendar];
   }
+  generateHTMLTable() {
+    const HTMLTable = [];
+
+    for (const cell of this.calendar) {
+      if (cell?.length === 0) {
+        HTMLTable.push("");
+      } else {
+        let HTMLstring = "";
+        for (const item of cell) {
+          HTMLstring += `<p>${item}</p>`;
+        }
+        HTMLTable.push(HTMLstring);
+      }
+    }
+    return HTMLTable;
+  }
   addEvent(dateObject, title) {
     const eventDate = dateObject.getDate();
     this.calendar[this.firstDay + eventDate].push(title);
