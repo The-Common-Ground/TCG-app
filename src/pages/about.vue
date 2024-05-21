@@ -83,42 +83,42 @@ export default {
           description: "Tech Enthusiast",
           committees: ["Core", "Tech"],
           roles: ["Development OIC", "Full-Stack Developer"],
-          src: "",
+          src: "/members/harry.jpeg",
         },
         {
           name: "Jeremy Tan",
           description: "Academic Weapon",
           committees: ["Core", "Admin"],
           roles: ["Administrative OIC"],
-          src: "",
+          src: "/members/jeremy.jpg",
         },
         {
           name: "Ze Dong",
           description: "Technophilic?",
           committees: ["Core", "Tech"],
           roles: ["Tech Lead", "Backend Developer"],
-          src: "",
+          src: "/members/zedong.jpg",
         },
         {
           name: "Esther Lee",
           description: "Stationery Enthusiast",
           committees: ["Core", "Design"],
           roles: ["Design Lead"],
-          src: "",
+          src: "/members/esther.jpg",
         },
         {
           name: "Ke Hao",
           description: "For the greater good of humanity",
           committees: ["Core", "Admin"],
           roles: ["Administrative Lead"],
-          src: "",
+          src: "/members/kehao.jpg",
         },
         {
           name: "Jie Ling",
           description: "I love art",
           committees: ["Core", "Design"],
           roles: ["Design Assistant Lead"],
-          src: "",
+          src: "/members/jieling.png",
         },
         {
           name: "Yu Heng",
@@ -153,13 +153,10 @@ export default {
           description: "See you at BuildingBloCs June Conference",
           committees: ["Tech"],
           roles: ["Backend Developer"],
-          src: "",
+          src: "/members/justin.jpg",
         },
       ],
     };
-  },
-  mounted() {
-    console.log(this.core);
   },
 };
 </script>

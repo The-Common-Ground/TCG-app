@@ -120,7 +120,7 @@ export default {
       rawEvents: toRaw(events.events),
 
       // Carousel 
-      slides: ["/default/volunteering.png", "/default/NYC.jpg"],
+      slides: ["/slides/volunteering.png", "/slides/NYC.jpg"],
 
       // Search Bar
       userSearchContent: null,

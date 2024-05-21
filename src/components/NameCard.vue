@@ -31,6 +31,7 @@ export default {
       if (href) {
         return href;
       } else {
+        // console.log(href);
         return "/default/placeholder.jpg";
       }
     },

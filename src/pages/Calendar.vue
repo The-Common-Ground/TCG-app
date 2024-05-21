@@ -63,7 +63,6 @@ export default {
         this.month = 0;
       }
       this.render = true;
-      console.log("Render");
     },
     decrementMonth() {
       this.render = false;
@@ -73,7 +72,6 @@ export default {
         this.month = 11;
       }
       this.render = true;
-      console.log("Render");
     },
   },
 };
