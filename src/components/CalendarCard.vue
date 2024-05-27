@@ -2,7 +2,7 @@
   <v-card
     class="calendar-card"
     :image="imgDisplay(src)"
-    :href="`/events/${title}`"
+    :href="`${title}`"
     hover
   >
     <div class="label">

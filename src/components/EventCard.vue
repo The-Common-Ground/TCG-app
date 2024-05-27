@@ -11,7 +11,7 @@
         class="mt-5 mx-n3"
         variant="text"
         color="indigo-darken-4"
-        :to="`/events/${name}`"
+        :to="`${name}`"
       >
         <p>Check it out</p>
         <v-icon class="px-3">mdi-arrow-right</v-icon>

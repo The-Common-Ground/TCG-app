@@ -6,10 +6,10 @@ export class Calendar {
     [this.rows, this.calendar] = this.generateTable(month, year);
   }
   getFirstDay(month, year) {
-    return new Date(year, month - 1, 1).getDay();
+    return new Date(year, month, 1).getDay();
   }
   getDaysInMonth(month, year) {
-    return new Date(year, month, 0).getDate();
+    return new Date(year, month + 1, 0).getDate();
   }
   generateTable(month, year) {
     const firstDay = this.getFirstDay(month, year);
@@ -46,5 +46,24 @@ export class Calendar {
   addEvent(dateObject, title) {
     const eventDate = dateObject.getDate();
     this.calendar[this.firstDay + eventDate].push(title);
+  }
+  getCellDate(i) {
+    const longMonths = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    if (this.calendar[i][0]) {
+      return [longMonths[this.month], this.calendar[i][0]];
+    }
   }
 }

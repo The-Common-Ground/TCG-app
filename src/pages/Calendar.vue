@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import CalendarTable from "../components/CalendarTable.vue";
+import CalendarTable from "../components/calendar/CalendarTable.vue";
 
 export default {
   components: {

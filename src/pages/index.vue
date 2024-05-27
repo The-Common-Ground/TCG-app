@@ -25,7 +25,7 @@
         </v-menu>
       </v-toolbar>
 
-      <div class="d-flex flex-column flex-fill align-left justify-left">
+      <div class="d-flex flex-column flex-fill align-left justify-left" v-if="!showResults">
         <div>
           <p class="text-h4 my-10 font-weight-bold header">Upcoming Event</p>
         </div>
@@ -48,7 +48,7 @@
         </div>
       </div>
       
-      <div class="mx-3 d-flex flex-wrap">
+      <div class="mx-3 d-flex flex-wrap" v-if="!showResults">
         <div v-for="(category, i) in topCategories">
             <v-btn elevation="5" class="my-3 mx-1 pa-16 d-flex align-center justify-center">
               <p class="font-weight-bold text-h6">{{ category.name }}</p>
