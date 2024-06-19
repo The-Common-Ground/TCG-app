@@ -50,9 +50,7 @@
       
       <div class="mx-3 d-flex flex-wrap" v-if="!showResults">
         <div v-for="(category, i) in topCategories">
-            <v-btn elevation="5" class="my-3 mx-1 pa-16 d-flex align-center justify-center">
-              <p class="font-weight-bold text-h6">{{ category.name }}</p>
-            </v-btn>
+            <CategoryCard :title="category.name" :icon="category.icon" :color="category.color"></CategoryCard>
         </div>
       </div>
     </div>
@@ -75,6 +73,7 @@
 import EventCard from "/components/EventCard.vue";
 import events from "/public/events.json"
 import CalendarCard from "/components/CalendarCard.vue";
+import CategoryCard from "/components/CategoryCard.vue";
 
 export default {
   props: {
@@ -127,12 +126,10 @@ export default {
       userSearchLabel: null,
       
       topCategories: [
-        { name: "Environment", id: "Environment" },
-        { name: "Elderly", id: "Elderly" },
-        { name: "Youth", id: "Youth" },
-        { name: "SIV", id: "SIV" },
-        { name: "Charity", id: "Charity"},
-        { name: "Fundraising", id: "Fundraising" }
+        { name: "Environment", id: "Environment", icon: "mdi-pine-tree", color: "green-darken-4" },
+        { name: "Elderly", id: "Elderly", icon: "mdi-human-male", color:"grey-darken-1" },
+        { name: "Youth", id: "Youth", icon: "mdi-emoticon-happy", color: "yellow-darken-3" },
+        { name: "Fundraising", id: "Fundraising", icon: "mdi-cash", color: "green-darken-1"}
       ],
     };
   },
