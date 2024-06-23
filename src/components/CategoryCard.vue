@@ -1,9 +1,12 @@
 <template>
-  <div class="container">
+  <div
+    class="category-container"
+    @click="$router.push({ path: '/', query: { q: title } })"
+  >
     <v-icon class="icon" :color="color">{{ icon }}</v-icon>
     <div style="display: block">
       <p class="category-title">{{ title }}</p>
-      <p class="category-subtitle">{{ subtitle }}</p>
+      <p class="category-subtitle">{{ subtitle || "Coming Soon..." }}</p>
     </div>
   </div>
 </template>
@@ -19,14 +22,14 @@ export default {
 };
 </script>
 
-<style>
-.container {
+<style scoped>
+.category-container {
   width: 300px;
   display: flex;
   padding: 10px;
 }
 
-.container:hover {
+.category-container:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   background-color: #f0f0f0;
 }

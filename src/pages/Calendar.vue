@@ -9,6 +9,8 @@
       </p>
     </div>
 
+    <div></div>
+
     <CalendarTable
       class="mx-auto"
       :month="month"
@@ -21,10 +23,13 @@
 
 <script>
 import CalendarTable from "../components/calendar/CalendarTable.vue";
+import EventCard from "/components/EventCard.vue";
+import events from "/public/events.json";
 
 export default {
   components: {
-    CalendarTable,
+    // CalendarTable,
+    EventCard,
   },
   props: {
     width: Number,
@@ -52,6 +57,19 @@ export default {
         "December",
       ];
       return longMonths[this.month];
+    },
+    events() {
+      return events.events;
+    },
+    eventsSorted() {
+      return this.rawEvents
+        .map((element, i, array) => {
+          element.dateTime = new Date(element.dateTime);
+          return element;
+        })
+        .sort((a, b) => {
+          return a.dateTime.getTime() - b.dateTime.getTime();
+        });
     },
   },
   methods: {

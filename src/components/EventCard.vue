@@ -1,21 +1,12 @@
 <template>
-  <v-sheet
-    class="d-flex secondary-colour pa-5 mx-16 align-center justify-center"
-    elevation="3"
+  <div
+    class="event-container d-flex pa-5 mx-16 align-center justify-center"
+    @click="$router.push(`${title}`)"
   >
     <img class="event-photo" :src="displayImg" />
     <div class="event-text pa-5">
-      <p class="text-h4">{{ name }}</p>
+      <p class="text-h4">{{ title }}</p>
       <p>{{ description }}</p>
-      <v-btn
-        class="mt-5 mx-n3"
-        variant="text"
-        color="indigo-darken-4"
-        :to="`${name}`"
-      >
-        <p>Check it out</p>
-        <v-icon class="px-3">mdi-arrow-right</v-icon>
-      </v-btn>
       <v-spacer></v-spacer>
       <v-chip
         v-for="(label, i) in toRaw(labels)"
@@ -23,12 +14,12 @@
         >{{ label }}
       </v-chip>
     </div>
-  </v-sheet>
+  </div>
 </template>
 
 <script>
 export default {
-  props: { name: String, description: String, img: String, labels: Array },
+  props: { title: String, description: String, img: String, labels: Array },
   computed: {
     displayImg() {
       if (this.img) {
@@ -42,6 +33,11 @@ export default {
 </script>
 
 <style>
+.event-container:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  background-color: #e6f7fb;
+}
+
 .event-text {
   width: 60%;
 }

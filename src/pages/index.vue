@@ -37,6 +37,7 @@
             :src="event.img"
             :dateTime="event.dateTime"
             :title="event.title"
+            :location="event.location"
           ></CalendarCard>
         </div>
       </div>
@@ -60,7 +61,7 @@
     v-if="showResults"
       v-for="(event, i) in events"
       class="my-3"
-      :name="event.title"
+      :title="event.title"
       :description="event.description"
       :labels="event.labels"
       :img="event.img"
@@ -91,7 +92,14 @@ export default {
       } else {
         this.showResults = false
       }
-    }
+    },
+    '$route.query.q'(newValue, oldValue) {
+        if (newValue) {
+          this.showResults = true
+        } else {
+          this.showResults = false
+        }
+      },
   },
   methods: {
     search(id) {
